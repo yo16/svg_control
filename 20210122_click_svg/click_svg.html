@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Click SVG Element</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    SVGタグエリアをクリック。座標も取得。<br />
+    <svg width="500px" height="500px" id="svg1">
+    </svg><br />
+    SVG要素内の相対座標は、clientXとclientY。（他はたぶん使わない。）<br />
+    svgタグにlineタグがあると、line＞svgの順に両方クリックされる。<br />
+    rectでも一緒。<br />
+    ただしrectで重なってるときは、表示が上になっているもののクリックイベントのみで、下の要素は発生しない。そのあとsvg要素は発生する。おそらく、タグ的に下から上へ伝播して、範囲のチェックが行われているのではないか。
+</body>
+</html>
