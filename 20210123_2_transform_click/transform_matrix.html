@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Transform Matrix</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h3>Transformでmatrix変形した後、クリックした座標を正しく取れるのか</h3>
+    x:50, y:50, width:100, height:200のbox（点線の矩形）をmatrix(2,0,0,1,100,100)で変形（赤色の矩形）。<br />
+    matrix(2,0,0,1,100,100)は、先に2倍して、次に平行移動する変形。<br />
+    <svg width="500px" height="500px" id="svg1">
+        <line x1="0" y1= "50" x2="500" y2= "50" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="100" x2="500" y2="100" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="150" x2="500" y2="150" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="200" x2="500" y2="200" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="250" x2="500" y2="250" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="300" x2="500" y2="300" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="350" x2="500" y2="350" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="400" x2="500" y2="400" stroke="#aac" stroke-width="1" />
+        <line x1="0" y1="450" x2="500" y2="450" stroke="#aac" stroke-width="1" />
+        <line x1= "50" y1="0" x2= "50" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="100" y1="0" x2="100" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="150" y1="0" x2="150" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="200" y1="0" x2="200" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="250" y1="0" x2="250" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="300" y1="0" x2="300" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="350" y1="0" x2="350" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="400" y1="0" x2="400" y2="500" stroke="#aac" stroke-width="1" />
+        <line x1="450" y1="0" x2="450" y2="500" stroke="#aac" stroke-width="1" />
+
+        <rect id="rect_base"
+            x="50" y="50" width="100" height="200"
+            fill="none" stroke="black" stroke-width="2" stroke-dasharray="5,3" />
+        <g transform="matrix(2,0,0,1,100,100)">
+            <rect id="rect1"
+                x="50" y="50" width="100" height="200" fill="#f00" />
+        </g>
+    </svg>
+    <br />
+    click eventのoffsetの値を使うと、matrix変形後に表示されている状態の座標値を得ることができる。<br />
+    ちなみにpage、clientも、transformによっておかしくなるわけではなく、変形後に表示されている状態の座標値。<br />
+</body>
+</html>
