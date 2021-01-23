@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Drag & Transform</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="../lib/svg_common.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h3>ドラッグによって、svgのtransformを変形して全体を変える</h3>
+    左ボタンのドラッグで移動、右ボタンのドラッグで拡大縮小。<br />
+    おまけで中クリックで初期化。<br />
+    <svg width="500px" height="500px" id="svg1" >
+        <g id="mtx1" transform="matrix(1,0,0,1,0,0)">
+            <rect x="50" y="50" width="50" height="100" fill="#f00" stroke="#000" stroke-width="1" />
+            <circle cx="175" cy="75" r="25" fill="#0f0" stroke="#000" stroke-width="2" />
+            <ellipse cx="275" cy="100" rx="25" ry="50" fill="#66f" stroke="#000" stroke-width="3" />
+            <line x1="350" y1="50" x2="400" y2="150" stroke="#00f" stroke-width="4" />
+            <polyline points="50,200 100,200 100,300 50,250 75,225" stroke="#f66" stroke-width="5" fill="none" />
+            <polygon points="150,250 150,300 200,300 200,250 175,200 150,250" stroke="#000" stroke-width="6" fill="#6f6" />
+            <path d="M250,200 m30,30
+                c3,3 5,5 30,-5
+                M250,200 m50 18
+                c-5,5 -10,50 -3,50
+                M250,200 m60,40
+                c-5,10 -10,20 -30,30
+                -4,-8 4,8 -4,-8
+                30,-40 60,0 30,15"
+                stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </g>
+    </svg><br />
+    svgにtransformを書くと、svg自体が動いてしまうのでだめ。<br />
+    その下は、g自体のクリックが認識されないのでドラッグできない。<br />
+    なので、svgでmousemoveとかは取得して、gのtransformを変更するようにした。<br />
+    <br />
+    方眼用紙はめんどくさいからそのまま。<br />
+    <br />
+    あと、ひらがなを自由曲線で描くの面白かった。
+</body>
+</html>
