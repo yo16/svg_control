@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Transform Matrix</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    Transformのmatrix<br />
+    width:100, height:200のbox<br />
+    <svg width="500px" height="500px" id="svg1">
+        <g>
+            <rect id="rect1"
+                x="0" y="0" width="100" height="200" fill="#f00" />
+        </g>
+    </svg>
+    <svg width="500px" height="500px" id="svg2">
+        <g transform="matrix(2,0,0,1,100,100)">
+            <rect id="rect2"
+                x="0" y="0" width="100" height="200" fill="#f00" />
+        </g>
+    </svg>
+    <br />
+    左はオリジナル。右はx軸方向に2倍して、(100,100)移動。
+    
+</body>
+</html>
