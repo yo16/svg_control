@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Transform Matrix</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h3>g要素のクリックはうまくできるのか</h3>
+    <ul>
+        <li>g要素はclickイベントが発生するのか？</li>
+        <li>g要素をtransformした後、座標値はどうなるのか？</li>
+        <li>g要素をtransformして移動したら、クリックイベントは発生しないよね？</li>
+    </ul>
+    <svg width="500px" height="500px" id="svg1">
+        <g id="g1" transform="matrix(2,0,0,1,100,100)" style="background-color:#000">
+            <rect id="rect1"
+                x="50" y="50" width="100" height="200" fill="#f00" />
+        </g>
+    </svg>
+    <br />
+
+    <ul>
+        <li>まずg要素にstyle=background-colorが効かない。なのでクリックしたかどうか、位置がわかりづらい。</li>
+        <li>g要素の中にある要素（上で言うとrect）がクリックされると、イベントが伝播されて、g.clickも動く。座標値は、rectと同じ。</li>
+        <li>g要素自体はclickイベントが発生しないので、gがtransformされてもあまり関係ない。中に入っているものの問題。</li>
+    </ul>
+</body>
+</html>
