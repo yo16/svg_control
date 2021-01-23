@@ -42,8 +42,7 @@ function add_drag_event(elm_event){
                 );
             }
             // 新しいmatrixを適用
-            let elm = $("#mtx1");
-            elm.attr(
+            $("#mtx1").attr(
                 "transform",
                 "matrix("+cur_matrix.join(",")+")"
             );
@@ -51,14 +50,12 @@ function add_drag_event(elm_event){
     });
     elm_event.mousedown(function(e){
         pos_mousedown = [e.offsetX, e.offsetY];
-        console.log(e.button);
         if(e.button==1){
             $("#mtx1").attr("transform", "matrix(1,0,0,1,0,0)");
             return;
         }
         is_mousedown = e.button;
-        let elm = $("#mtx1");
-        let mtx_str = elm.attr("transform");
+        let mtx_str = $("#mtx1").attr("transform");
         let m = mtx_str.match(re);
         if(m){
             let mtx = m[1].split(",");
