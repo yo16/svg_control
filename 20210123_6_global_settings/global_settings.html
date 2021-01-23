@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Global Settings</title>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="../lib/svg_common.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <h3>全体を１箇所で設定できるか確認</h3>
+    線幅をまとめてコントロールしたいので、その確認<br />
+    <input id="num1" type="number" style="width:50px; text-align:right;"
+        value="5" min="1" />
+    <br />
+    <svg width="500px" height="500px" id="svg1" >
+        <g id="g1" stroke-width="5">
+            <rect x="50" y="50" width="50" height="100" fill="#f00" stroke="#000" />
+            <circle cx="175" cy="75" r="25" fill="#0f0" stroke="#000" />
+            <ellipse cx="275" cy="100" rx="25" ry="50" fill="#66f" stroke="#000" />
+            <line x1="350" y1="50" x2="400" y2="150" stroke="#00f" />
+            <polyline points="50,200 100,200 100,300 50,250 75,225" stroke="#f66" fill="none" />
+            <polygon points="150,250 150,300 200,300 200,250 175,200 150,250" stroke="#000" fill="#6f6" />
+            <path d="M250,200 m30,30
+                c3,3 5,5 30,-5
+                M250,200 m50 18
+                c-5,5 -10,50 -3,50
+                M250,200 m60,40
+                c-5,10 -10,20 -30,30
+                -4,-8 4,8 -4,-8
+                30,-40 60,0 30,15"
+                stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </g>
+    </svg><br />
+    g要素で指定すると、それ以下は全部同じ値になる。
+</body>
+</html>
