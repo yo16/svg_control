@@ -1,22 +1,24 @@
-var draggables = [];
+var draggables = null;
 
 $(document).ready(function(){
     draw_base($("#svg1"));
 
     // 要素を登録
-    draggables.push(new DraggableBox("#rect1"));
-    draggables.push(new DraggableBox("#rect2"));
-
-    $("#svg1").mousemove(function(e){
-        draggables.forEach(elm => elm.moving(e.clientX, e.clientY));
-    });
-    $("#svg1").mousedown(function(e){
-        draggables.forEach(elm => elm.start_dragging(e.clientX, e.clientY));
-    });
-    $("#svg1").mouseup(function(e){
-        draggables.forEach(elm => elm.finish_dragging());
-    });
+    draggables = new Draggables();
+    draggables.add_elm("#rect1");
+    draggables.add_elm("#rect2");
 });
+
+// draggableな要素をまとめるクラス
+class Draggables{
+    constructor(){
+        this.draggables = [];
+    }
+    add_elm(elmId){
+        // box以外もできるといいな
+        this.draggables.push(new DraggableBox(elmId));
+    }
+}
 
 // draggableな要素クラス
 class DraggableBox{
@@ -34,6 +36,11 @@ class DraggableBox{
         // ドラッグ時のオフセット（ドラッグ移動距離）
         this.offset_pos = [0,0];
         this.is_dragging = false;
+
+        // イベントリスナーの登録
+        this.elm.mousemove(e => this.moving(e.clientX, e.clientY));
+        this.elm.mousedown(e => this.start_dragging(e.clientX, e.clientY));
+        this.elm.mouseup(e => this.finish_dragging());
     }
 
     start_dragging(clicked_x, clicked_y){
