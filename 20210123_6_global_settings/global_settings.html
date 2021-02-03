@@ -14,7 +14,7 @@
     <br />
     <svg width="500px" height="500px" id="svg1" >
         <g id="g1" stroke-width="5">
-            <rect x="50" y="50" width="50" height="100" fill="#f00" stroke="#000" />
+            <rect x="50" y="50" width="50" height="100" fill="#f00" stroke="#000" stroke-width="3" />
             <circle cx="175" cy="75" r="25" fill="#0f0" stroke="#000" />
             <ellipse cx="275" cy="100" rx="25" ry="50" fill="#66f" stroke="#000" />
             <line x1="350" y1="50" x2="400" y2="150" stroke="#00f" />
@@ -31,6 +31,7 @@
                 stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="none" />
         </g>
     </svg><br />
-    g要素で指定すると、それ以下は全部同じ値になる。
+    g要素で指定すると、それ以下は全部同じ値になる。<br />
+    子に直接指定している場合は、子の指定を優先する。
 </body>
 </html>
