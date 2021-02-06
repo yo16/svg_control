@@ -57,5 +57,7 @@ https://triple-underscore.github.io/SVG11/
 - 20210203_1_draggable_elm_class
     - ドラッグ可能な要素クラスのサンプル
         - svg要素のクラスと、ドラッグする対象(サンプルではrect)のクラスで実現してみた。
-- つぎWith inertia
-    - ドラッグ＆ドロップで慣性を持っているように動作させるサンプル
+- 20210204_1_draggable_with_inertia_elm_class
+    - ドラッグ＆ドロップで慣性を持っているように動作させるサンプル。
+    - 正直動きは微妙。必要になったらもうちょっと原因調査が必要。
+
