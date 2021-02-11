@@ -28,7 +28,7 @@ class DraggableElms{
             this.draggables[this.cur_dragging_elm_idx].moving(e.clientX, e.clientY);
         });
         this.svg_elm.mouseup(e => {
-            if(this.cur_dragging_elm_id === null){ return; }
+            if(this.cur_dragging_elm_idx === null){ return; }
             this.draggables[this.cur_dragging_elm_idx].finish_dragging(e);
         })
 
