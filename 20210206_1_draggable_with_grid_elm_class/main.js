@@ -38,7 +38,7 @@ class DraggableElms{
             this.draggables[this.cur_dragging_elm_idx].dragging(e.clientX, e.clientY);
         });
         this.svg_elm.mouseup(e => {
-            if(this.cur_dragging_elm_id === null){ return; }
+            if(this.cur_dragging_elm_idx === null){ return; }
             let cur_elm = this.draggables[this.cur_dragging_elm_idx];
             // ドラッグ終了
             cur_elm.finish_dragging(e);
@@ -100,6 +100,11 @@ class AutoMove{
     }
 
     regist_elm(elm, pos){
+        // 登録済みだったら取り出す
+        // to_posが変わる可能性があるため
+        this.elms = this.elms.filter(e => e['elm'].elm_id !== elm.elm_id);
+
+        // 登録
         this.elms.push(
             {
                 'elm': elm,
@@ -119,7 +124,7 @@ class AutoMove{
             let finished_moving = am.move_elm_to_target(cur_elm_info['elm'], cur_elm_info['to_pos']);
             if( finished_moving ){
                 // ゴールに着いたら配列から取り出す
-                am.elms.pop();
+                am.elms = am.elms.filter(e => e!==cur_elm_info);
             }
         }
 
