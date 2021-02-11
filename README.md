@@ -60,4 +60,6 @@ https://triple-underscore.github.io/SVG11/
 - 20210204_1_draggable_with_inertia_elm_class
     - ドラッグ＆ドロップで慣性を持っているように動作させるサンプル。
     - 正直動きは微妙。必要になったらもうちょっと原因調査が必要。
+- 20210206_1_draggable_with_grid_elm_class
+    - ドラッグしてグリッドに寄せるサンプル
 
